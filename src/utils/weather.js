@@ -21,12 +21,36 @@ export const getWeatherDescription = (code) => {
 
 export const formatHourlyData = (weatherData) => {
   if (!weatherData) return [];
-  // 밑에 코드 채워주세요
-  return [];
+  const hourlyTime = weatherData.hourly.time.slice(0, 7);
+  const hourlyTemperature = weatherData.hourly.temperature_2m.slice(0, 7);
+  const hourlyWeatherCode = weatherData.hourly.weather_code.slice(0, 7);
+  const hourlyData = hourlyTime.map((time, index) => ({
+    time: new Date(time).getHours() + "시",
+    temp: hourlyTemperature[index],
+    weatherCode: hourlyWeatherCode[index],
+  }));
+  return hourlyData;
 };
 
 export const formatDailyData = (weatherData) => {
   if (!weatherData) return [];
-  // 밑에 코드 채워주세요
-  return [];
+
+  const dailyTime = weatherData.daily.time;
+  const dailyWeatherCode = weatherData.daily.weather_code;
+  const dailyTempMax = weatherData.daily.temperature_2m_max;
+
+  const daysKor = ["일", "월", "화", "수", "목", "금", "토"];
+
+  return dailyTime.map((dateStr, index) => {
+    const date = new Date(dateStr);
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const weekday = daysKor[date.getDay()];
+
+    return {
+      date: `${month}월 ${day}일 (${weekday})`,
+      weatherCode: dailyWeatherCode[index],
+      maxTemp: dailyTempMax[index],
+    };
+  });
 };
