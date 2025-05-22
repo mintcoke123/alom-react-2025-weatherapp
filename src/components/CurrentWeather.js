@@ -5,14 +5,15 @@ import {
   WeatherCode,
 } from "./styles/StyledComponents";
 import { getWeatherDescription } from "../utils/weather";
+import { dayNumber } from "../constants/constants";
 
 const CurrentWeather = ({ weatherData, isLoading }) => {
   if (isLoading) {
     return <div>로딩중입니다...</div>;
   }
 
-  const currentTemp = weatherData.hourly.temperature_2m[0];
-  const currentWeatherCode = weatherData.daily.weather_code[0];
+  const currentTemp = weatherData.hourly.temperature_2m[dayNumber.firstDay];
+  const currentWeatherCode = weatherData.daily.weather_code[dayNumber.firstDay];
 
   return (
     <CurrentWeatherWrapper>

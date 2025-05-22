@@ -222,3 +222,4 @@ const exampleResponse = {
     weather_code: [2, 3, 75, 1, 2, 3, 2],
   },
 };
+

@@ -15,6 +15,9 @@ export const CurrentWeatherWrapper = styled.div`
   color: white;
 `;
 
+export const SkeletonWeatherWrapper = styled(CurrentWeatherWrapper)`
+
+`;
 export const Temperature = styled.h1`
   font-size: 4rem;
   margin: 0;
