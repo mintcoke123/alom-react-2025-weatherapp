@@ -26,4 +26,6 @@ export const daysKor = ["일", "월", "화", "수", "목", "금", "토"];
 export const units = {
     temperature: "°C",
     hour: "시",
+    month: "월",
+    day: "일",
 }

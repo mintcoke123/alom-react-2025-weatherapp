@@ -32,9 +32,11 @@ export const formatDailyData = (weatherData) => {
     const weekday = daysKor[date.getDay()];
 
     return {
-      date: `${month}월 ${day}일 (${weekday})`,
+      date: `${month}${units.month} ${day}${units.day} (${weekday})`,
       weatherCode: dailyWeatherCode[index],
       maxTemp: dailyTempMax[index],
     };
   });
 };
+
+
